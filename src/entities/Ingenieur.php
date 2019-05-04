@@ -1,11 +1,10 @@
 <?php
 use Doctrine\ORM\Annotation as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
-
 /**
- * @Entity @Table(name="user")
+ * @Entity @Table(name="ingenieur")
  **/
-class User
+class Ingenieur
 {
     /** @Id @Column(type="integer") @GeneratedValue **/
     private $id;
@@ -18,21 +17,21 @@ class User
     /** @Column(type="string") **/
     private $password;
     /**
-     * One user has many lieux. This is the inverse side.
-     * @OneToMany(targetEntity="Lieu", mappedBy="user")
+     * Many ingenieurs have one profil. This is the owning side.
+     * @ManyToOne(targetEntity="Profil", inversedBy="ingenieurs")
+     * @JoinColumn(name="profil_id", referencedColumnName="id")
      */
-    private $lieux;
-    /**
-     * Many Users have Many Roles.
-     * @ManyToMany(targetEntity="Roles", inversedBy="users")
-     * @JoinTable(name="users_roles")
-     */
-    private $roles;
+    private $profil;
+     /**
+     * Many Ingenieurs have Many Serveurs.
+     * @ManyToMany(targetEntity="Serveur",inversedBy="ingenieurs")
     
+     */
+    private $serveurs;
+
     public function __construct()
     {
-        $this->lieux = new ArrayCollection();
-        $this->roles = new ArrayCollection();
+        $this->serveurs = new ArrayCollection();
     }
     public function getId()
     {
@@ -54,22 +53,20 @@ class User
 
     public function getPrenom()
     {
-        return $this->prenom;
+        return $this->date;
     }
     public function setPrenom($prenom)
     {
         $this->prenom = $prenom;
     }
-
     public function getEmail()
     {
         return $this->email;
     }
-    public function setEmail($email)
+    public function setDEmail($email)
     {
         $this->email = $email;
     }
-    
     public function getPassword()
     {
         return $this->password;
@@ -78,21 +75,23 @@ class User
     {
         $this->password = $password;
     }
-    public function getLieux()
+
+
+    public function getProfil()
     {
-        return $this->lieux;
+        return $this->profil;
     }
-    public function setLieux($lieux)
+    public function setUser($profil)
     {
-        $this->lieux = $lieux;
+        $this->profil = $profil;
     }
-    public function getRoles()
+    public function getServeur()
     {
-        return $this->roles;
+        return $this->serveurs;
     }
-    public function setRoles($roles)
+    public function setServeur($serveurs)
     {
-        $this->roles = $roles;
+        $this->serveurs = $serveurs;
     }
 }
 

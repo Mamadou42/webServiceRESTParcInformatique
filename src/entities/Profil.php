@@ -2,23 +2,23 @@
 use Doctrine\ORM\Annotation as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 /**
- * @Entity @Table(name="roles")
+ * @Entity @Table(name="profil")
  **/
-class Roles
+class Profil
 {
     /** @Id @Column(type="integer") @GeneratedValue **/
     private $id;
     /** @Column(type="string") **/
     private $nom;
     /**
-     * Many Roles have Many Users.
-     * @ManyToMany(targetEntity="User", mappedBy="roles")
+     * Many Profils have Many Ingenieurs.
+     * @ManyToMany(targetEntity="Ingenieur", mappedBy="profil")
      */
-    private $users;
+    private $ingenieurs;
     
     public function __construct()
     {
-        $this->users = new ArrayCollection();
+        $this->ingenieurs = new ArrayCollection();
     }
     public function getId()
     {
@@ -38,13 +38,13 @@ class Roles
         $this->nom = $nom;
     }
 
-    public function getUers()
+    public function getIngenieurs()
     {
-        return $this->users;
+        return $this->ingenieurs;
     }
-    public function setUsers($users)
+    public function setIngenieur($ingenieurs)
     {
-        $this->users = $users;
+        $this->ingenieurs = $ingenieurs;
     }
 }
 

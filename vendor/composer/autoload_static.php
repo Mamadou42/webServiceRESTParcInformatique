@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit38199c94ceddd82989a3b9ffe1f6fb63
+class ComposerStaticInit3e1aa9cd1b7b890a777f1cbf108e6184
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -84,10 +84,10 @@ class ComposerStaticInit38199c94ceddd82989a3b9ffe1f6fb63
         ),
         'Doctrine\\Common\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
-            1 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
+            0 => __DIR__ . '/..' . '/doctrine/event-manager/lib/Doctrine/Common',
+            1 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
             2 => __DIR__ . '/..' . '/doctrine/persistence/lib/Doctrine/Common',
-            3 => __DIR__ . '/..' . '/doctrine/reflection/lib/Doctrine/Common',
+            3 => __DIR__ . '/..' . '/doctrine/common/lib/Doctrine/Common',
         ),
     );
 
@@ -108,10 +108,10 @@ class ComposerStaticInit38199c94ceddd82989a3b9ffe1f6fb63
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit38199c94ceddd82989a3b9ffe1f6fb63::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit38199c94ceddd82989a3b9ffe1f6fb63::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit38199c94ceddd82989a3b9ffe1f6fb63::$prefixesPsr0;
-            $loader->fallbackDirsPsr0 = ComposerStaticInit38199c94ceddd82989a3b9ffe1f6fb63::$fallbackDirsPsr0;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit3e1aa9cd1b7b890a777f1cbf108e6184::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit3e1aa9cd1b7b890a777f1cbf108e6184::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit3e1aa9cd1b7b890a777f1cbf108e6184::$prefixesPsr0;
+            $loader->fallbackDirsPsr0 = ComposerStaticInit3e1aa9cd1b7b890a777f1cbf108e6184::$fallbackDirsPsr0;
 
         }, null, ClassLoader::class);
     }

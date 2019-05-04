@@ -17,7 +17,7 @@ class Bootstrap
                 if(file_exists($controller_file))
                 {
                     require_once $controller_file;
-                    $controller = $url[0];
+                    $controller = $url[0].'Controller';
                     $controller_object = new $controller();
                     if(isset($url[1]))
                     {
